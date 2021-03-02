@@ -1,0 +1,9 @@
+.album {
+    &__thumbnai {
+        & >img {
+            width: 150px;
+            border-radius: 0.5rem;
+        }
+    }
+    &__name {    font-weight: bold;}
+}
