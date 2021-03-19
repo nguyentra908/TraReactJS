@@ -14,6 +14,7 @@ function ListPage(props) {
   const location = useLocation();
   const history = useHistory();
   const match = useRouteMatch();
+
   const [todoList, setTodoList] = useState(initTodoList);
   const [filterTodo, setFilterTodo] = useState(() => {
     const params = queryString.parse(location.search);
@@ -36,6 +37,8 @@ function ListPage(props) {
     console.log(todo, index);
     setTodoList(newTodoList);
   }
+
+  //filter status
   const handleShowAll = () => {
     // setFilterTodo("all");
     const queryParams = { status: "all" };
@@ -64,7 +67,6 @@ function ListPage(props) {
   const renderTodo = todoList.filter((todo) => filterTodo === "all" || filterTodo === todo.status);
   console.log(renderTodo);
   //todo form
-
   const handleSubmitForm = (values) => {
     console.log("submit:", values);
     const newTodo = {
@@ -74,6 +76,7 @@ function ListPage(props) {
     };
     setTodoList([...todoList, newTodo]);
   };
+
   return (
     <div>
       <p>Todo-Form</p>
