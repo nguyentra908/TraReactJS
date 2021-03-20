@@ -1,7 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
 import { Box, Grid } from "@material-ui/core";
-import Skeleton from "@material-ui/lab/Skeleton";
+import PropTypes from "prop-types";
+import React from "react";
 import Product from "./Product";
 
 ProductList.propTypes = {
@@ -16,7 +15,7 @@ function ProductList(props) {
     <Box>
       <Grid container>
         {data.map((product) => (
-          <Grid item key={product.id} xm={12} sm={6} md={4} mx={3}>
+          <Grid item key={product.id} xm={12} sm={6} md={4} lg={3}>
             <Product product={product} />
           </Grid>
         ))}
