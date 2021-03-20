@@ -39,20 +39,21 @@ function ListPage(props) {
     _limit: 9,
     _sort: "salePrice:ASC",
   });
-
+  //API
   useEffect(() => {
     (async () => {
       try {
         const { data, pagination } = await productApi.getAll(filters);
         setProductList(data);
         setPagination(pagination);
-        console.log(pagination);
+        console.log(data, pagination);
       } catch (error) {
         console.log("ERROR", error);
       }
       setLoading(false);
     })();
   }, [filters]);
+
   //change pagination
   const handleChangePagination = (e, page) => {
     setFilters((preFilters) => ({
@@ -67,7 +68,7 @@ function ListPage(props) {
       _sort: newValueSort,
     }));
   };
-
+  //change filter (category, price, service)
   const handleChangeFilters = (newFilters) => {
     setFilters((preFilters) => ({
       ...preFilters,
